@@ -9,4 +9,7 @@ const app = express ();
 readdirSync("./routes").map((r) => app.use("/api", require(`./routes/${r}`)));
 //app.use("/api", router);
 
-app.listen(8000, () => console.log(`Server is running on port 8000`));
+// Create a port variable and access the value from the .env file
+const port = process.env.PORT || 8000;
+
+app.listen(port, () => console.log(`Server is running on port ${port}`));
