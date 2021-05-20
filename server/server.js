@@ -4,9 +4,11 @@ import express from "express";
 import { readdirSync } from "fs";
 // Import middleware module so ou app can connect to MongoDB (needed because our front and back are working on different ports)
 import cors from "cors";
+import mongoose from "mongoose";
 // Print the route in the console in dev mode
 // This way of importing morgan give a warning in the console
 // import morgan from "morgan";
+require('dotenv').config();
 const morgan = require("morgan");
 
 const app = express ();
