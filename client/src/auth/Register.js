@@ -1,4 +1,5 @@
-import {useState} from 'react'
+import {useState} from 'react';
+import RegisterForm from "../components/RegisterForm";
 
 // Set state by using callback functions and hook (functions)
 const Register = () => {
@@ -12,52 +13,6 @@ const Register = () => {
         console.table({ name, email, password });
     };
 
-    const registerForm = () => (
-        <form onSubmit={handleSubmit} className="mt-3">
-            <div className="form-group mb-3">
-                <div className="form-label">
-                    <label>Your name</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Enter name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                </div>
-            </div>
-
-            <div className="form-group mb-3">
-                <div className="form-label">
-                    <label>Your email</label>
-                    <input
-                        type="email"
-                        className="form-control"
-                        placeholder="Enter email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                </div>
-            </div>
-
-            <div className="form-group mb-3">
-                <div className="form-label">
-                    <label>Password</label>
-                    <input
-                        type="password"
-                        className="form-control"
-                        placeholder="Enter password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                </div>
-            </div>
-
-            <button className="btn btn-primary">Submit</button>
-
-        </form>
-        );
-
     return(
         <div>
             <div className="container-fluid bg-secondary p-5 text-center">
@@ -66,7 +21,15 @@ const Register = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-md-6 offset-md-3">
-                        {registerForm()}
+                        <RegisterForm 
+                            handleSubmit={handleSubmit}
+                            name={name}
+                            setName={setName}
+                            email={email}
+                            setEmail={setEmail}
+                            password={password}
+                            setPassword={setPassword}
+                        />
                     </div>
                 </div>
             </div>
