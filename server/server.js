@@ -25,7 +25,9 @@ mongoose
     .catch((err) => console.log("DB Connection Error: ", err));
 
 // middlewares
+app.use(cors());
 app.use(morgan("dev"));
+app.use(express.json());
 
 // Route middleware
 readdirSync("./routes").map((r) => app.use("/api", require(`./routes/${r}`)));
