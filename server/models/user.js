@@ -1,4 +1,5 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
 const {Schema} = mongoose
 
 const userSchema = new Schema({
@@ -15,7 +16,7 @@ const userSchema = new Schema({
     },
     password:{
         type: String,
-        required; true,
+        required: true,
         min: 6,
         max: 64
     },
@@ -25,5 +26,33 @@ const userSchema = new Schema({
 },
     { timestamps: true }
 );
+
+/** 
+ * While saving the user's password we need to make sure the password is hashed based on specific conditions 
+ * (only when the password is modified)
+ */
+
+userSchema.pre("save", function(next) 
+{   
+    let user = this;
+    /* Hash the password only when needed, if we don't use this the password will get autoupdated 
+    and hashed and we won't be able to connect again with our original password.
+    */
+    if (user.isModified("password")) 
+    {
+        return bcrypt.hash(user.password, 12, function (err, hash) 
+        {
+            if (err) {
+                console.log("BCRYPT HASH ERR ", err);
+                return next(err);
+            }
+            user.password = hash;
+            return next();
+        });
+        } 
+        else {
+            return next ();
+        }
+});
 
 export default mongoose.model("User", userSchema);
