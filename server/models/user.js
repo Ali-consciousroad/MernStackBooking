@@ -40,7 +40,7 @@ userSchema.pre("save", function(next)
     */
     if (user.isModified("password")) 
     {
-        return bcrypt.hash(user.password, 12, function (err, hash) 
+        return bcrypt.hash(user.password, 12, function(err, hash) 
         {
             if (err) {
                 console.log("BCRYPT HASH ERR ", err);
