@@ -1,12 +1,16 @@
 import {useState} from "react";
 import RegisterForm from "../components/RegisterForm";
 import axios from "axios";
+import { toast } from 'react-toastify';
 
 // Set state by using callback functions and hook (functions)
-const Register = () => {
+const Register = ({ history }) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState(''); 
+
+    // Test
+    // console.log("history", history);
 
     // Event hander
     const handleSubmit = async (e) => {
@@ -24,9 +28,12 @@ const Register = () => {
             password,
         });
         console.log("REGISTER USER ===> ", res);
+        toast("Register success. Please login.");
+        history.push("/login");
         } 
             catch(err){
             console.log(err);
+            if (err.response.status === 400) toast.error(err.response.data);
         }
     };
 
@@ -35,6 +42,7 @@ const Register = () => {
             <div className="container-fluid bg-secondary p-5 text-center">
                 <h1>Register</h1>                
             </div>
+
             <div className="container">
                 <div className="row">
                     <div className="col-md-6 offset-md-3">
