@@ -17,12 +17,14 @@ const Register = ({ history }) => {
         e.preventDefault();
         // console.table({ name, email, password });
         try{
-            const res = await axios.post(`http://localhost:8000/api/register`, {
+            // By using the route from the .env file, we won't need to update each route manually 
+            const res = await axios.post(`${process.env.REACT_APP_API}/register`, {
             /*
             name: name,
             email: email, 
             password: password,
             */
+            // Shorter syntax
             name,
             email,
             password,
@@ -36,6 +38,9 @@ const Register = ({ history }) => {
             if (err.response.status === 400) toast.error(err.response.data);
         }
     };
+
+    // TEST
+    //console.log(process.env.REACT_APP_API);
 
     return(
         <div>
