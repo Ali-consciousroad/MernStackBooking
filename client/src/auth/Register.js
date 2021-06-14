@@ -2,6 +2,7 @@ import {useState} from "react";
 import RegisterForm from "../components/RegisterForm";
 import axios from "axios";
 import { toast } from 'react-toastify';
+import { register } from "../actions/auth";
 
 // Set state by using callback functions and hook (functions)
 const Register = ({ history }) => {
@@ -17,17 +18,10 @@ const Register = ({ history }) => {
         e.preventDefault();
         // console.table({ name, email, password });
         try{
-            // By using the route from the .env file, we won't need to update each route manually 
-            const res = await axios.post(`${process.env.REACT_APP_API}/register`, {
-            /*
-            name: name,
-            email: email, 
-            password: password,
-            */
-            // Shorter syntax
-            name,
-            email,
-            password,
+            const res = await register({
+                name, 
+                email, 
+                password,
         });
         console.log("REGISTER USER ===> ", res);
         toast("Register success. Please login.");
