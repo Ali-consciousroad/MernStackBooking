@@ -1,26 +1,13 @@
 // Use destructuration instead of classical props syntax for the parameters of the function
-const RegisterForm = ({
+const LoginForm = ({
     handleSubmit, 
-    name, 
-    setName, 
     email, 
     setEmail, 
     password, 
     setPassword,
 }) => (
     <form onSubmit={handleSubmit} className="mt-3">
-            <div className="form-group mb-3">
-                <div className="form-label">
-                    <label>Your name</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Enter name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                </div>
-            </div>
+            
 
             <div className="form-group mb-3">
                 <div className="form-label">
@@ -48,8 +35,11 @@ const RegisterForm = ({
                 </div>
             </div>
 
-            <button disabled={!name || !email || !password} className="btn btn-primary">Submit</button>
+            <button
+                disabled={!email || !password} 
+                className="btn btn-primary">Submit
+            </button>
         </form>
 )
 
-export default RegisterForm;
+export default LoginForm;
