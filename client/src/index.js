@@ -6,9 +6,9 @@ import reportWebVitals from './reportWebVitals';
 
 
 // 1. import from react-redux and redux
-import {createStore} from 'redux';
-import {Provider} from 'react-redux';
-import {composeWithDevTools} from 'redux-devtools-extension';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './reducers';
 
 // 2. create user reducer function -> reducers/auth.js
