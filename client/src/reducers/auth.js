@@ -1,5 +1,5 @@
 export const authReducer = (
-  state = { name: "Ali", role: "Blockchain Software Engineer - Entrepreneur"}, 
+  state = { /*name: "Ali", role: "Blockchain Software Engineer - Entrepreneur"*/ }, 
   action) => {
     switch (action.type) {
       case "LOGGED_IN_USER":
