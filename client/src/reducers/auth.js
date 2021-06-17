@@ -1,4 +1,4 @@
-// Update redux state with the loca storage data
+// Update redux state with the local storage data
 let userState;
 if (window.localStorage.getItem("auth")){
   userState = JSON.parse(window.localStorage.getItem("auth"));
@@ -6,12 +6,10 @@ if (window.localStorage.getItem("auth")){
   userState = null; 
 }
 
-export const authReducer = (
-  state = userState, 
-  action) => {
+export const authReducer = (state = userState, action) => {
     switch (action.type) {
       case "LOGGED_IN_USER":
-        return {...state, ...action.payload};
+        return { ...state, ...action.payload };
       case "LOGOUT":
         return action.payload;
       default:
