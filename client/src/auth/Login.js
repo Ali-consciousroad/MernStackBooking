@@ -5,8 +5,8 @@ import LoginForm from "../components/LoginForm";
 import { useDispatch } from 'react-redux';
 
 const Login = ({history}) => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState(''); 
+    const [email, setEmail] = useState('123@123');
+    const [password, setPassword] = useState('123123'); 
 
     const dispatch = useDispatch();
 
@@ -19,9 +19,9 @@ const Login = ({history}) => {
                 console.log(
                     "SAVE USER RES IN REDUX AND LOCAL STORAGE THEN REDIRECT ===> "
                 );
-                // console.log(res.data);
+                console.log(res.data);
                 // save user and token to local storage
-                window.localStorage.setItem("ath", JSON.stringify(res.data));
+                window.localStorage.setItem("auth", JSON.stringify(res.data));
                 // save user and token to redux
                 dispatch({
                     type: "LOGGED_IN_USER",
