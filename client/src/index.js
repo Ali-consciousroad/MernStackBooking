@@ -16,7 +16,7 @@ import rootReducer from './reducers';
 // 4. create redux store
 const store = createStore(rootReducer, composeWithDevTools());
 
-// 5. provide redux store to the entire app
+// 5. provide redux store to the entire app so our app can access the state
 
 ReactDOM.render(
   <React.StrictMode>

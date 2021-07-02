@@ -1,0 +1,10 @@
+Instructions
+
+- Now on login, token and user is sent from backend as response to frontend
+- Save the token and user to redux state and also in the local storage
+- Then each time you need to access some protected routes in backend
+- ... which we'll be createing later (for posting a hotel for booking etc.)
+- You will send this token in the req.headers 
+- Then backend can check the token to see if it is valid with expiry and it match the JWT_SECRET 
+- We can also use expressJwt middleware to extract user id from token 
+which will be useful to get logged in user ???

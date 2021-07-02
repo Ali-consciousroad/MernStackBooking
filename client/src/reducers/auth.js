@@ -1,4 +1,4 @@
-// Update redux state with the local storage data
+// Update redux state with the local storage data (so we can keep the auth data even after we refresh the page)
 let userState;
 if (window.localStorage.getItem("auth")){
   userState = JSON.parse(window.localStorage.getItem("auth"));

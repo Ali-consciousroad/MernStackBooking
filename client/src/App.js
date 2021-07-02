@@ -10,6 +10,12 @@ import Home from "./booking/Home";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 import Dashboard from "./user/Dashboard";
+import DashboardSeller from "./user/DashboardSeller";
+
+/**
+ * Create TopNavigation/menu bar so that we can easily navigate between pages
+ * Write it in App.js (will be later moved in it's own component)
+ */
 
 function App() {
   return (
@@ -21,6 +27,11 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
+        <PrivateRoute
+          exact
+          path="/dashboard/seller"
+          component={DashboardSeller}
+        />
       </Switch>
     </BrowserRouter>
   );
