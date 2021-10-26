@@ -1,4 +1,4 @@
-# Hotel Booking Marketplace based on the MERN stack
+# MERN stack Hotel Booking Marketplace
 
 
 
