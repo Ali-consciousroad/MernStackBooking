@@ -13,14 +13,15 @@ const DashboardSeller = () => {
   const [loading, setLoading] = useState(false)
 
   const handleClick = async () => {
-    setLoading(true)
+    setLoading(true);
     try {
-      let res = await createConnectAccount(auth.token)
+      // This won't work if some other random string is used instead of auth.token
+      let res = await createConnectAccount(auth.token);
       console.log(res) // get login link
     } catch (err) {
-      console.log(err)
-      toast.error('Stripe connect failed, Try again.')
-      setLoading(false)
+      console.log(err);
+      toast.error('Stripe connect failed, Try again.');
+      setLoading(false);
     }
   }
 
