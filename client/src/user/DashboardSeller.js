@@ -9,8 +9,8 @@ import { toast } from 'react-toastify'
 
 // Destructure the state
 const DashboardSeller = () => {
-  const { auth } = useSelector(state => ({ ...state }))
-  const [loading, setLoading] = useState(false)
+  const { auth } = useSelector(state => ({ ...state }));
+  const [loading, setLoading] = useState(false);
 
   const handleClick = async () => {
     setLoading(true);
