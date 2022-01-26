@@ -1,4 +1,4 @@
-# MERN stack Hotel Booking Marketplace
+# MERN stack Freelance Marketplace
 
 
 
